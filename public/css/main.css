@@ -73,3 +73,7 @@ body {
 .transition-2000 {
     transition: 2s;
 }
+
+a.underline-link:hover {
+    text-decoration: underline;
+}

@@ -89,10 +89,70 @@
         @yield('content')
     </main>
 
-    <footer>
+    <footer class="bg-white">
         <div class="container">
-            <div class="row">
+            <div class="row py-5 justify-content-around">
+                <div class="col-auto">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">пицца</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">суши</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">меню</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">пицца</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">суши</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">меню</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">пицца</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">суши</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">меню</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-muted text-capitalize underline-link">контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
+            <div class="row justify-content-center">
+                <a href="#" class="nav-link card-product transition-500 small text-muted mb-4">Made with <span class="text-danger">&hearts;</span> by Mount</a>
             </div>
         </div>
     </footer>

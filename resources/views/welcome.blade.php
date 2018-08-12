@@ -227,10 +227,10 @@
     <script type="application/javascript">
         $('.card-product').hover(
             function (e) {
-                $(this).addClass('shadow');
+                $(this).addClass('shadow-lg');
             },
             function (e) {
-                $(this).removeClass('shadow');
+                $(this).removeClass('shadow-lg');
             }
         );
     </script>
