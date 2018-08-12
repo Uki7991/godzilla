@@ -10,22 +10,21 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="/images/logo_transparent.png" class="logo" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -33,21 +32,34 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-capitalize">главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-capitalize">пицца</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-capitalize">суши</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-capitalize">меню</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-capitalize">контакты</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @else
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">0(550) 131-122</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">0(709) 551-122</a>
+                        </li>
+                        @auth
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -56,7 +68,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -65,15 +77,28 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+
+                        @endauth
                     </ul>
                 </div>
             </div>
         </nav>
+    </header>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    <main>
+        @yield('content')
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    @stack('scripts')
 </body>
 </html>
