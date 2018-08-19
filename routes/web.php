@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+Route::resource('type', 'TypeController');
+Route::resource('product', 'ProductController');
+
+Route::get('datatable/getproducts', 'ProductController@getProducts')->name('datatable.getproducts');
+Route::get('datatable/getusers', 'AdminController@getUsers')->name('datatable.getusers');
+Route::get('datatable/gettypes', 'TypeController@getTypes')->name('datatable.gettypes');

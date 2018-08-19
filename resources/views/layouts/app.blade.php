@@ -152,7 +152,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <a href="#" class="nav-link card-product transition-500 small text-muted mb-4">Made with <span class="text-danger">&hearts;</span> by Mount</a>
+                <a href="https://mount.kg" class="nav-link card-product transition-500 small text-muted mb-4">Made with <span class="text-danger">&hearts;</span> by Mount</a>
             </div>
         </div>
     </footer>
