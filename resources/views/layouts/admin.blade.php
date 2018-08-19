@@ -71,7 +71,7 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('js/datatables.min.js') }}"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+<script src="{{ asset('js/ckeditor.min.js') }}"></script>
 @stack('scripts')
 </body>
 </html>
