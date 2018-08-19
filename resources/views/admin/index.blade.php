@@ -9,7 +9,7 @@
                 @include('admin.sidebar')
             </div>
 
-            <div class="col py-3">
+            <div class="col-10 py-3">
                 @includeWhen($typeOfView === 'options', 'product.test', ['products' => 'products'])
                 @includeWhen($typeOfView === 'products', 'product.test1', ['products' => 'products'])
                 @includeWhen($typeOfView === 'pizza', 'product.test2', ['products' => 'products'])

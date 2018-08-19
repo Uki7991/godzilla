@@ -77,3 +77,9 @@ body {
 a.underline-link:hover {
     text-decoration: underline;
 }
+
+/** CKEditor5 Classic **/
+.ck.ck-content {
+    min-height: 300px;
+}
+/** End CKEditor5 Classic **/

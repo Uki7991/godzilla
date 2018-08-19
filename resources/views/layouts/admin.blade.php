@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<header class="sticky-top shadow-sm">
+<header class="shadow-sm">
     <nav class="navbar navbar-expand-md navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -71,7 +71,7 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('js/datatables.min.js') }}"></script>
-
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 @stack('scripts')
 </body>
 </html>
