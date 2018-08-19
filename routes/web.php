@@ -21,8 +21,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::resource('type', 'TypeController');
-Route::resource('product', 'ProductController');
+Route::prefix('admin')->group(function () {
+    Route::resource('type', 'TypeController');
+    Route::resource('product', 'ProductController');
+    Route::get('product/pizza', 'ProductController@pizza')->name('product.pizza');
+    Route::get('product/sushi', 'ProductController@sushi')->name('product.sushi');
+    Route::resource('user', 'UserController');
+    Route::get('options', 'AdminController@options')->name('options');
+});
 
 Route::get('datatable/getproducts', 'ProductController@getProducts')->name('datatable.getproducts');
 Route::get('datatable/getusers', 'AdminController@getUsers')->name('datatable.getusers');

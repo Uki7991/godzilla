@@ -17,14 +17,19 @@ class AdminController extends Controller
         ]);
     }
 
-    public function getUsers()
+    public function options()
+    {
+        return view('admin.options');
+    }
+
+    public function getUsers(Request $request)
     {
         $users = User::select(['id', 'name', 'email', 'password', 'created_at', 'updated_at']);
 
         return Datatables::of($users)
             ->addColumn('action', function ($user) {
-                return '<a href="#edit-'.$user->id.'" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                        <a href="#delete-'.$user->id.'" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
+                return '<a href="'.route('product.update', $user->id).'" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                        <a href="'.route('product.destroy', $user->id).'" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
             })
             ->removeColumn('password')
             ->make(true);

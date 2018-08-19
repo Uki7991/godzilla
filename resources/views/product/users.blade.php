@@ -1,19 +1,25 @@
-<div class="row">
-    <div class="col-12">
-        <table class="table table-bordered" id="users-table">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-        </table>
+@extends('admin.index')
+
+@section('admin_content')
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered" id="users-table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
-</div>
+
+@endsection
 
 @push('scripts')
     <script>
