@@ -17,11 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'AdminController@index')->name('admin');
-
-Route::prefix('admin')->group(function () {
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+    Route::get('/admin', 'AdminController@index')->name('admin');
     Route::resource('type', 'TypeController');
     Route::resource('product', 'ProductController');
     Route::get('product/pizza', 'ProductController@pizza')->name('product.pizza');

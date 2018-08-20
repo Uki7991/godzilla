@@ -4,7 +4,7 @@
 
     @include('_partials._big_banner')
 
-    <div class="container py-4">
+    <div id="pizza" class="container py-4">
         <div class="row justify-content-center">
             <h2 class="text-capitalize">пицца</h2>
         </div>
@@ -112,7 +112,7 @@
         </div>
     </div>
 
-    <div class="container py-4">
+    <div id="sushi" class="container py-4">
         <div class="row justify-content-center">
             <h2 class="text-capitalize">суши</h2>
         </div>

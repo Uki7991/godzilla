@@ -37,10 +37,10 @@
                             <a href="" class="nav-link text-capitalize">главная</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-capitalize">пицца</a>
+                            <a href="#pizza" class="nav-link text-capitalize">пицца</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-capitalize">суши</a>
+                            <a href="#sushi" class="nav-link text-capitalize">суши</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link text-capitalize">меню</a>
@@ -158,6 +158,7 @@
     </footer>
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/smoothscroll.min.js') }}"></script>
 
     @stack('scripts')
 </body>
