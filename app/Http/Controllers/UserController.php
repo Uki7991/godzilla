@@ -12,4 +12,11 @@ class UserController extends Controller
     {
         return view('users.users');
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->back();
+    }
 }

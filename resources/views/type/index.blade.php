@@ -51,4 +51,13 @@
             });
         });
     </script>
+
+    <script>
+        $(function () {
+            $('#delete-confirmation').on('show.bs.modal', function (e) {
+                var id = $(e.relatedTarget).attr('data-id');
+                $(this).find('form#delete-form').attr('action', '/admin/type/' + id);
+            })
+        });
+    </script>
 @endpush
