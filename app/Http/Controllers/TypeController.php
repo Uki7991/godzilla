@@ -24,7 +24,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('type.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Type::create($request->all());
+
+        return redirect()->route('type.index');
     }
 
     /**
@@ -57,7 +59,9 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('type.edit', [
+            'type' => $type,
+        ]);
     }
 
     /**
@@ -69,7 +73,9 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $type->update($request->all());
+
+        return redirect()->route('type.index');
     }
 
     /**
