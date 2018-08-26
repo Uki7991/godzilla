@@ -5,22 +5,20 @@
     <div class="row mb-4 justify-content-end">
         <div class="col-auto">
             @include('admin.create_button', [
-                'route' => route('product.create'),
+                'route' => route('type.create'),
                 'color' => 'success',
-                'text' => 'Новый продукт'
+                'text' => 'Новый тип продукта'
             ])
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
-            <table class="table table-bordered" id="products-table">
+            <table class="table table-bordered" id="types-table">
                 <thead>
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Price</th>
-                    <th>Type id</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -39,15 +37,13 @@
 @push('scripts')
     <script>
         $(function() {
-            $('#products-table').DataTable({
+            $('#types-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('datatable.getproducts') !!}',
+                ajax: '{!! route('datatable.gettypes') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
-                    { data: 'price', name: 'price' },
-                    { data: 'type.name', name: 'type.name' },
                     { data: 'action', name: 'action', orderable: false, searchable: false }
                 ]
             });

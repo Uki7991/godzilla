@@ -29,6 +29,6 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::get('options', 'AdminController@options')->name('options');
 });
 
-Route::get('datatable/getproducts', 'ProductController@getProducts')->name('datatable.getproducts');
+Route::get('datatable/getproducts', 'AdminController@getProducts')->name('datatable.getproducts');
 Route::get('datatable/getusers', 'AdminController@getUsers')->name('datatable.getusers');
-Route::get('datatable/gettypes', 'TypeController@getTypes')->name('datatable.gettypes');
+Route::get('datatable/gettypes', 'AdminController@getTypes')->name('datatable.gettypes');

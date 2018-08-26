@@ -15,9 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product.index', [
-            'products' => Product::all()->sortByDesc('id'),
-        ]);
+        return view('product.index');
     }
 
     /**
@@ -40,9 +38,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create($request->all());
+        $product = new Product($request->all());
 
-        return redirect()->back();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = uniqid('product_').'.jpg';
+
+            \Image::make($file)
+                ->save(public_path('uploads/'.$fileName), 60);
+
+            $product->image = $fileName;
+        }
+
+        $product->save();
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -64,7 +74,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('product.edit', [
+            'product' => $product,
+            'types' => Type::all(),
+        ]);
     }
 
     /**
@@ -76,7 +89,25 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->fill($request->all());
+
+        if ($request->hasFile('image')) {
+            if ($product->getOriginal('image') && is_file(public_path('uploads/'.$product->getOriginal('image')))) {
+                unlink(public_path('uploads/'.$product->getOriginal('image')));
+            }
+
+            $file = $request->file('image');
+            $fileName = uniqid('product_').'.jpg';
+
+            \Image::make($file)
+                ->save(public_path('uploads/'.$fileName), 60);
+
+            $product->image = $fileName;
+        }
+
+        $product->save();
+
+        return redirect()->route('product.index');
     }
 
     /**

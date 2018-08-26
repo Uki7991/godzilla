@@ -10,6 +10,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('product.users');
+        return view('users.users');
     }
 }
