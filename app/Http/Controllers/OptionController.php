@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OptionRequest;
 use App\Option;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,11 @@ class OptionController extends Controller
      * @param  \App\Option  $option
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Option $option)
+    public function update(OptionRequest $request, Option $option)
     {
-        $option->fill($request->request->all());
+        $validated = $request->validated();
+
+        $option->fill($validated);
 
         if ($request->hasFile('logo')) {
             if (is_file(public_path('uploads/'.$option->getOriginal('logo'))) && $option->getOriginal('logo')) {

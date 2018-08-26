@@ -9,7 +9,12 @@
                 @csrf
                 <div class="form-group">
                     <label for="name-of-type">Название</label>
-                    <input name="name" type="text" class="form-control" id="name-of-type" placeholder="Название">
+                    <input name="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name-of-type" placeholder="Название" value="{{ old('name') }}">
+                    @if($errors->has('name'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <button type="submit" class="btn btn-success">Сохранить</button>
             </form>

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Option extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['name', 'description', 'email', 'tel1', 'tel2', 'tel3', 'tel4', 'instagram', 'whatsapp', 'banner_action'];
 }
