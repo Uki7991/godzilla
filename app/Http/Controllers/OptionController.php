@@ -41,7 +41,7 @@ class OptionController extends Controller
             $fileName = uniqid('banner_image_').'.jpg';
 
             \Image::make($file)
-                ->save(public_path('uploads/'.$fileName), 60);
+                ->save(public_path('uploads/'.$fileName), 50);
 
             $option->banner_image = $fileName;
         }

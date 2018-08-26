@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\Type;
 use Illuminate\Http\Request;
@@ -36,12 +37,14 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $product = new Product($request->all());
+        $request = $request->validated();
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
+        $product = new Product($request);
+
+        if ($request['image']) {
+            $file = $request['image'];
             $fileName = uniqid('product_').'.jpg';
 
             \Image::make($file)
@@ -87,9 +90,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        $product->fill($request->all());
+        $validated = $request->validated();
+
+        $product->fill($validated);
 
         if ($request->hasFile('image')) {
             if ($product->getOriginal('image') && is_file(public_path('uploads/'.$product->getOriginal('image')))) {

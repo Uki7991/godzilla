@@ -8,12 +8,6 @@
     <li class="nav-item py-1 border-bottom {{ Request::is('admin/type') ? 'bg-secondary' : '' }}">
         <a class="nav-link {{ Request::is('admin/type') ? 'text-light' : 'text-dark' }}" href="{{ route('type.index') }}">Типы продуктов</a>
     </li>
-    <li class="nav-item py-1 border-bottom {{ Request::is('admin/pizza') ? 'bg-secondary' : '' }}">
-        <a class="nav-link {{ Request::is('admin/pizza') ? 'text-light' : 'text-dark' }}" href="{{ route('product.pizza') }}">Пицца</a>
-    </li>
-    <li class="nav-item py-1 border-bottom {{ Request::is('admin/sushi') ? 'bg-secondary' : '' }}">
-        <a class="nav-link {{ Request::is('admin/sushi') ? 'text-light' : 'text-dark' }}" href="{{ route('product.sushi') }}">Суши</a>
-    </li>
     <li class="nav-item py-1 border-bottom {{ Request::is('admin/user') ? 'bg-secondary' : '' }}">
         <a class="nav-link {{ Request::is('admin/user') ? 'text-light' : 'text-dark' }}" href="{{ route('user.index') }}">Users</a>
     </li>

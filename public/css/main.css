@@ -78,8 +78,12 @@ a.underline-link:hover {
     text-decoration: underline;
 }
 
-/** CKEditor5 Classic **/
-.ck.ck-content {
-    min-height: 300px;
+.description_of_product {
+    min-height: 46px;
+    max-height: 46px;
 }
-/** End CKEditor5 Classic **/
+
+.image_of_product {
+    min-height: 200px;
+    max-height: 200px;
+}

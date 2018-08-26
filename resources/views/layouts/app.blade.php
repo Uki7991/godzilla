@@ -95,70 +95,70 @@
         @yield('content')
     </main>
 
-    <footer class="bg-white">
+    <footer class="bg-dark text-white">
         <div class="container">
             <div class="row py-5 justify-content-around">
                 <div class="col-auto">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">главная</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">пицца</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">пицца</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">суши</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">суши</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">меню</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">меню</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">контакты</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-auto">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">пицца</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">суши</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">меню</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">контакты</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">контакты</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-auto">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">главная</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">пицца</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">пицца</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">суши</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">суши</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">меню</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">меню</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-muted text-capitalize underline-link">контакты</a>
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">пицца</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">суши</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">меню</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light text-capitalize underline-link">контакты</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="row justify-content-center">
-                <a href="https://mount.kg" class="nav-link card-product transition-500 small text-muted mb-4">Made with <span class="text-danger">&hearts;</span> by Mount</a>
+                <a href="https://mount.kg" class="nav-link card-product transition-500 small text-light mb-4">Made with <span class="text-danger">&hearts;</span> by Mount</a>
             </div>
         </div>
     </footer>
