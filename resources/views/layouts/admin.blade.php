@@ -18,7 +18,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('stylesheets')
     <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <body>
 
@@ -41,11 +41,14 @@
                     @auth
 
                         <li class="nav-item dropdown">
+
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a href="{{ route('options') }}" class="dropdown-item">Admin panel</a>
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -70,9 +73,7 @@
 </main>
 
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('js/datatables.min.js') }}"></script>
-<script src="{{ asset('js/ckeditor.min.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

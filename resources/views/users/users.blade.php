@@ -19,6 +19,8 @@
         </div>
     </div>
 
+    @include('_partials._delete_modal')
+
 @endsection
 
 @push('stylesheets')
