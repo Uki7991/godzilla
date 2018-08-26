@@ -57,6 +57,7 @@
             $('#delete-confirmation').on('show.bs.modal', function (e) {
                 var id = $(e.relatedTarget).attr('data-id');
                 $(this).find('form#delete-form').attr('action', '/admin/type/' + id);
+                $(this).find('.modal-body')[0].innerHTML = 'Вы точно хотите удалить?<br>Это удалит и все связанные с типом продукты!'
             })
         });
     </script>

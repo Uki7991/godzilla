@@ -91,6 +91,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
+        $type->products()->delete();
         $type->delete();
 
         return redirect()->back();
