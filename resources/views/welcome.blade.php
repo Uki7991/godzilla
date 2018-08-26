@@ -2,7 +2,11 @@
 
 @section('content')
 
-    @include('_partials._big_banner')
+    @isset($option)
+
+        @include('_partials._big_banner')
+
+    @endisset
 
     @foreach($types as $type)
 

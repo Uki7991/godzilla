@@ -8,59 +8,6 @@ use Illuminate\Http\Request;
 class OptionController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Option  $option
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Option $option)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Option  $option
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Option $option)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,17 +16,38 @@ class OptionController extends Controller
      */
     public function update(Request $request, Option $option)
     {
-        //
-    }
+        $option->fill($request->request->all());
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Option  $option
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Option $option)
-    {
-        //
+        if ($request->hasFile('logo')) {
+            if (is_file(public_path('uploads/'.$option->getOriginal('logo'))) && $option->getOriginal('logo')) {
+                unlink(public_path('uploads/'.$option->getOriginal('logo')));
+            }
+
+            $file = $request->file('logo');
+            $fileName = uniqid('logo_').'.jpg';
+
+            \Image::make($file)
+                ->save(public_path('uploads/'.$fileName));
+
+            $option->logo = $fileName;
+        }
+
+        if ($request->hasFile('banner_image')) {
+            if (is_file(public_path('uploads/'.$option->getOriginal('banner_image'))) && $option->getOriginal('banner_image')) {
+                unlink(public_path('uploads/'.$option->getOriginal('banner_image')));
+            }
+
+            $file = $request->file('banner_image');
+            $fileName = uniqid('banner_image_').'.jpg';
+
+            \Image::make($file)
+                ->save(public_path('uploads/'.$fileName), 60);
+
+            $option->banner_image = $fileName;
+        }
+
+        $option->save();
+
+        return redirect()->back();
     }
 }

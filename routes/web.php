@@ -24,6 +24,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::get('product/pizza', 'ProductController@pizza')->name('product.pizza');
     Route::get('product/sushi', 'ProductController@sushi')->name('product.sushi');
     Route::resource('user', 'UserController');
+    Route::resource('option', 'OptionController');
     Route::get('options', 'AdminController@options')->name('options');
 });
 

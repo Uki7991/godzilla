@@ -2,25 +2,29 @@
 
 @section('admin_content')
 
-    <div class="row justify-content-end">
-        <div class="col-auto mr-5">
-            <a href="" class="btn btn-success">Сохранить</a>
-        </div>
-    </div>
     <div class="mt-3 row justify-content-center">
         <div class="col-8">
-            <form>
+            <form action="{{ route('option.update', 1) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="name-of-site">Название сайта</label>
-                    <input type="text" class="form-control" id="name-of-site" placeholder="Название сайта">
+                    <input type="text" class="form-control" id="name-of-site" placeholder="Название сайта" value="{{ $option->name }}">
+                </div>
+                <div class="col-5">
+                    <img src="{{ asset('uploads/'.$option->logo) }}" class="img-fluid" alt="">
                 </div>
                 <div class="form-group">
                     <label for="logo-of-site">Логотип</label>
-                    <input type="file" class="form-control" id="logo-of-site" placeholder="Логотип">
+                    <input name="logo" type="file" class="form-control" id="logo-of-site" placeholder="Логотип">
                 </div>
                 <div class="form-group">
                     <label for="description-of-site">Информация о себе</label>
-                    <textarea class="form-control" name="content" id="description-of-site"></textarea>
+                    <textarea class="form-control" name="description" id="description-of-site">{{ $option->description }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="email-for-site">E-mail</label>
+                    <input name="email" type="email" id="email-for-site" class="form-control" value="{{ $option->email }}">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-6">
@@ -40,7 +44,30 @@
                         <input id="tel-of-site-4" type="text" class="form-control" name="tel4" value="{{ $option->tel4 }}">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="col-5">
+                    <img src="{{ asset('uploads/'.$option->banner_image) }}" class="img-fluid" alt="">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="action-for-banner">Продающий текст</label>
+                        <input name="banner_action" class="form-control" type="text" id="action-for-banner" value="{{ $option->banner_action }}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="image-for-banner">Картинка</label>
+                        <input name="banner_image" class="form-control" id="image-for-banner" type="file">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="instagram-of-site">Instagram</label>
+                        <input type="text" class="form-control" id="instagram-of-site" name="instagram" value="{{ $option->instagram }}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="whatsapp-for-site">Whatsapp</label>
+                        <input type="text" class="form-control" id="whatsapp-for-site" name="whatsapp" value="{{ $option->whatsapp }}">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Сохранить</button>
             </form>
         </div>
     </div>

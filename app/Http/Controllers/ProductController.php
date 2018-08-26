@@ -118,6 +118,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if (is_file(public_path('uploads/'.$product->image)) && $product->image) {
+            unlink(public_path('uploads/'.$product->image));
+        }
+
         $product->delete();
 
         return redirect()->back();

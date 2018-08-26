@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Option;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (\Schema::hasTable('options')) {
+            \View::share('option', Option::find(1));
+        }
     }
 
     /**
