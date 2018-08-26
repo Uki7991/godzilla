@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Option;
 use App\Product;
 use App\Type;
 use App\User;
@@ -17,7 +18,9 @@ class AdminController extends Controller
 
     public function options()
     {
-        return view('admin.options');
+        return view('admin.options', [
+            'option' => Option::find(1),
+        ]);
     }
 
     public function getUsers(Request $request)

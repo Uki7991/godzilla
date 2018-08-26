@@ -22,6 +22,24 @@
                     <label for="description-of-site">Информация о себе</label>
                     <textarea class="form-control" name="content" id="description-of-site"></textarea>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="tel-of-site-1">Телефон #1</label>
+                        <input id="tel-of-site-1" type="text" class="form-control" name="tel1" value="{{ $option->tel1 }}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="tel-of-site-2">Телефон #2</label>
+                        <input id="tel-of-site-2" type="text" class="form-control" name="tel2" value="{{ $option->tel2 }}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="tel-of-site-3">Телефон #3</label>
+                        <input id="tel-of-site-3" type="text" class="form-control" name="tel3" value="{{ $option->tel3 }}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="tel-of-site-4">Телефон #4</label>
+                        <input id="tel-of-site-4" type="text" class="form-control" name="tel4" value="{{ $option->tel4 }}">
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
