@@ -10,11 +10,6 @@
             </div>
 
             <div class="col-10 py-3">
-                {{--@includeWhen($typeOfView === 'options', 'product.test', ['products' => 'products'])--}}
-                {{--@includeWhen($typeOfView === 'products', 'product.test1', ['products' => 'products'])--}}
-                {{--@includeWhen($typeOfView === 'pizza', 'product.test2', ['products' => 'products'])--}}
-                {{--@includeWhen($typeOfView === 'sushi', 'product.test3', ['products' => 'products'])--}}
-                {{--@includeWhen($typeOfView === 'users', 'product.users', ['users' => $users])--}}
                 @yield('admin_content')
             </div>
 

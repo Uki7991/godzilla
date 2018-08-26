@@ -11,10 +11,7 @@ class AdminController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.index', [
-            'typeOfView' => isset($request->page) ? $request->page : 'options',
-            'users' => User::all(),
-        ]);
+        return view('admin.index');
     }
 
     public function options()
