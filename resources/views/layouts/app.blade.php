@@ -64,7 +64,7 @@
                             @endforeach
                         @endif
                         <li class="nav-item">
-                            <a href="" class="nav-link text-capitalize">контакты</a>
+                            <a href="#contacts" class="nav-link text-capitalize">контакты</a>
                         </li>
                     </ul>
 
@@ -111,7 +111,7 @@
         @yield('content')
     </main>
 
-    <footer class="bg-dark text-white font-weight-light">
+    <footer id="contacts" class="bg-dark text-white font-weight-light">
         <div class="container">
             <div class="row py-5 justify-content-around">
                 <div class="col-12 col-md-auto text-center">
@@ -119,17 +119,13 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
                         </li>
+                        @foreach($types as $type)
+                            <li class="nav-item">
+                                <a href="#{{ $type->slug }}" class="nav-link text-capitalize text-light">{{ $type->name }}</a>
+                            </li>
+                        @endforeach
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">пицца</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">суши</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">меню</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">контакты</a>
+                            <a href="#contacts" class="nav-link text-light text-capitalize underline-link">контакты</a>
                         </li>
                     </ul>
                 </div>

@@ -14,7 +14,7 @@
 
             <div id="{{ $type->slug }}" class="container py-2 py-md-4">
                 <div class="row justify-content-center">
-                    <h2 class="text-capitalize">{{ $type->name }}</h2>
+                    <h2 class="text-capitalize section-h2 font-weight-bold w-100"><span>{{ $type->name }}</span></h2>
                 </div>
 
                 <div class="row">
