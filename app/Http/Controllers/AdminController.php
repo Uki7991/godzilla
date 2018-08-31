@@ -28,10 +28,6 @@ class AdminController extends Controller
         $users = User::select(['id', 'name', 'email', 'password', 'created_at', 'updated_at']);
 
         return Datatables::of($users)
-            ->addColumn('action', function ($model) {
-                return '<a href="'.route('user.edit', $model->id).'" class="btn btn-sm btn-primary"><i class="far fa-edit"></i> Edit</a>
-                        <a href="'.route('user.destroy', $model->id).'" data-id="'.$model->id.'" onclick="event.preventDefault();" data-toggle="modal" data-target="#delete-confirmation" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Delete</a>';
-            })
             ->removeColumn('password')
             ->make(true);
     }
