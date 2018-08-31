@@ -25,17 +25,18 @@ class OptionRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'logo' => 'file|mimes:jpg,png,jpeg',
+            'logo' => 'mimes:jpg,png,jpeg',
             'tel1' => 'required|string|max:255',
-            'tel2' => 'string|max:255',
-            'tel3' => 'string|max:255',
-            'tel4' => 'string|max:255',
+            'tel2' => 'max:255',
+            'tel3' => 'max:255',
+            'tel4' => 'max:255',
             'email' => 'email|max:100',
-            'instagram' => 'url',
-            'whatsapp' => 'url',
+            'instagram' => 'max:255',
+            'whatsapp' => 'max:255',
             'description' => 'string',
-            'banner_image' => 'file|mimes:jpeg,png,jpg',
-            'banner_action' => 'string|max:100'
+            'keys' => 'string|max:255',
+            'banner_image' => 'mimes:jpeg,png,jpg',
+            'banner_action' => 'max:100'
         ];
     }
 }

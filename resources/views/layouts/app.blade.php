@@ -7,10 +7,13 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="{{ $option->description }}">
+    <meta name="keys" content="{{ $option->keys }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link rel="canonical" href="{{ URL::current() }}">
+    <link rel="icon" href="{{ asset('images/cropped-1-32x32.png') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -18,11 +21,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
 
-    <header class="sticky-top">
+    <header class="sticky-top shadow-sm">
         <nav class="navbar navbar-expand-md navbar-light bg-white">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -32,21 +36,33 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
                             <a href="" class="nav-link text-capitalize">главная</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#pizza" class="nav-link text-capitalize">пицца</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#sushi" class="nav-link text-capitalize">суши</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-capitalize">меню</a>
-                        </li>
+                        @if(count($types) > 4)
+                            <li class="nav-item dropdown">
+                                <a href="" class="nav-link text-capitalize dropdown-toggle" data-toggle="dropdown">меню <span class="caret"></span></a>
+
+                                <div class="dropdown-menu">
+                                    @foreach($types as $type)
+                                        @if(count($type->products) > 0)
+                                            <a href="#{{ $type->slug }}" class="dropdown-item text-capitalize">{{ $type->name }}</a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </li>
+                        @else
+                            @foreach($types as $type)
+                                @if(count($type->products) > 0)
+                                    <li class="nav-item">
+                                        <a href="#{{ $type->slug }}" class="nav-link text-capitalize">{{ $type->name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        @endif
                         <li class="nav-item">
                             <a href="" class="nav-link text-capitalize">контакты</a>
                         </li>
@@ -54,10 +70,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                        <li class="nav-item d-md-none d-lg-block">
                             <a class="nav-link" href="#">0(550) 131-122</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-md-none d-lg-block">
                             <a class="nav-link" href="#">0(709) 551-122</a>
                         </li>
                         @auth
@@ -95,10 +111,10 @@
         @yield('content')
     </main>
 
-    <footer class="bg-dark text-white">
+    <footer class="bg-dark text-white font-weight-light">
         <div class="container">
             <div class="row py-5 justify-content-around">
-                <div class="col-auto">
+                <div class="col-12 col-md-auto text-center">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
@@ -117,48 +133,76 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-auto">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">пицца</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">суши</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">меню</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">контакты</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-auto">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">пицца</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">суши</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">меню</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">контакты</a>
-                        </li>
-                    </ul>
+                {{--<div class="col-12 col-md-auto text-center">--}}
+                    {{--<ul class="nav flex-column">--}}
+                        {{--<li class="nav-item">--}}
+                            {{--<a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="nav-item">--}}
+                            {{--<a href="#" class="nav-link text-light text-capitalize underline-link">пицца</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="nav-item">--}}
+                            {{--<a href="#" class="nav-link text-light text-capitalize underline-link">суши</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="nav-item">--}}
+                            {{--<a href="#" class="nav-link text-light text-capitalize underline-link">меню</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="nav-item">--}}
+                            {{--<a href="#" class="nav-link text-light text-capitalize underline-link">контакты</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
+                <div class="col-12 col-md-auto text-center">
+                    @if($option->tel1 || $option->tel2)
+
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <a href="tel:{{ $option->tel1 }}" class="nav-link text-light underline-link">{{ $option->tel1 }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="tel:{{ $option->tel2 }}" class="nav-link text-light underline-link">{{ $option->tel2 }}</a>
+                            </li>
+                        </ul>
+
+                    @endif
+                    @if($option->tel3 || $option->tel4)
+
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <a href="tel:{{ $option->tel3 }}" class="nav-link text-light underline-link">{{ $option->tel3 }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="tel:{{ $option->tel4 }}" class="nav-link text-light underline-link">{{ $option->tel4 }}</a>
+                            </li>
+                        </ul>
+
+                    @endif
+                    @if($option->email)
+
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <a href="mailto:{{ $option->email }}" class="nav-link text-light underline-link">{{ $option->email }}</a>
+                            </li>
+                        </ul>
+
+                    @endif
+                    @if($option->instagram || $option->whatsapp)
+
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="{{ $option->instagram }}" target="_blank" class="nav-link text-light underline-link"><i class="fab fa-lg fa-instagram"></i> {{ $option->instagram }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ $option->whatsapp }}" target="_blank" class="nav-link text-light underline-link"><i class="fab fa-lg fa-whatsapp"></i> {{ $option->whatsapp }}</a>
+                            </li>
+                        </ul>
+
+                    @endif
                 </div>
             </div>
 
             <div class="row justify-content-center">
-                <a href="https://mount.kg" class="nav-link card-product transition-500 small text-light mb-4">Made with <span class="text-danger">&hearts;</span> by Mount</a>
+                <a target="_blank" href="https://mount.kg" class="nav-link card-product transition-500 small text-light mb-4">Made with <span class="text-danger">&hearts;</span> by Mount</a>
             </div>
         </div>
     </footer>

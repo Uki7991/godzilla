@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TypeRequest;
 use App\Type;
 use Illuminate\Http\Request;
+use IvanLemeshev\Laravel5CyrillicSlug\Slug;
 
 class TypeController extends Controller
 {
@@ -36,9 +37,12 @@ class TypeController extends Controller
      */
     public function store(TypeRequest $request)
     {
+        $slugObj = new Slug();
         $request = $request->validated();
 
-        Type::create($request);
+        $type = new Type($request);
+        $type->slug = $slugObj->make($type->name);
+        $type->save();
 
         return redirect()->route('type.index');
     }
@@ -76,9 +80,12 @@ class TypeController extends Controller
      */
     public function update(TypeRequest $request, Type $type)
     {
+        $slugObj = new Slug();
         $request = $request->validated();
 
-        $type->update($request);
+        $type->fill($request);
+        $type->slug = $slugObj->make($type->name);
+        $type->save();
 
         return redirect()->route('type.index');
     }
