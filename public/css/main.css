@@ -87,3 +87,25 @@ a.underline-link:hover {
     min-height: 200px;
     max-height: 200px;
 }
+
+.section-h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-h2 span {
+  margin: 0 15px;
+}
+.section-h2:before,
+.section-h2:after {
+  background: black;
+  height: 2px;
+  flex: 1;
+  content: '';
+}
+.section-h2.left:after {
+  background: none;
+}
+.section-h2.right:before {
+  background: none;
+}

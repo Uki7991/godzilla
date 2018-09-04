@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Option;
+use App\Type;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
     {
         if (\Schema::hasTable('options')) {
             \View::share('option', Option::find(1));
+        }
+        if (\Schema::hasTable('options')) {
+            \View::share('types', Type::all());
         }
     }
 

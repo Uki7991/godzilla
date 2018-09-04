@@ -30,7 +30,7 @@ class OptionRequest extends FormRequest
             'tel2' => 'max:255',
             'tel3' => 'max:255',
             'tel4' => 'max:255',
-            'email' => 'email|max:100',
+            'email' => 'max:100',
             'instagram' => 'max:255',
             'whatsapp' => 'max:255',
             'description' => 'string',
