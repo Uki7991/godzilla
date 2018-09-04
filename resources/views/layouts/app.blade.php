@@ -71,10 +71,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav">
                         <li class="nav-item d-md-none d-lg-block">
-                            <a class="nav-link" href="#">0(550) 131-122</a>
+                            <a class="nav-link" href="tel:{{ $option->tel1 }}">{{ $option->tel1 }}</a>
                         </li>
                         <li class="nav-item d-md-none d-lg-block">
-                            <a class="nav-link" href="#">0(709) 551-122</a>
+                            <a class="nav-link" href="tel:{{ $option->tel2 }}">{{ $option->tel2 }}</a>
                         </li>
                         @auth
 
