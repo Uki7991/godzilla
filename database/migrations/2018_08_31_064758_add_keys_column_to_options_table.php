@@ -14,7 +14,7 @@ class AddKeysColumnToOptionsTable extends Migration
     public function up()
     {
         Schema::table('options', function (Blueprint $table) {
-            $table->string('keys');
+            $table->string('keys')->nullable();
         });
     }
 

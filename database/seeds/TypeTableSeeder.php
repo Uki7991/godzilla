@@ -2,6 +2,7 @@
 
 use App\Type;
 use Illuminate\Database\Seeder;
+use IvanLemeshev\Laravel5CyrillicSlug\Slug;
 
 class TypeTableSeeder extends Seeder
 {
@@ -12,17 +13,23 @@ class TypeTableSeeder extends Seeder
      */
     public function run()
     {
+        $slugObj = new Slug();
+
         Type::create([
-            'name' => 'Пицца'
+            'name' => 'Пицца',
+            'slug' => $slugObj->make('Пицца'),
         ]);
         Type::create([
-            'name' => 'Суши'
+            'name' => 'Суши',
+            'slug' => $slugObj->make('Суши'),
         ]);
         Type::create([
-            'name' => 'Первые блюда'
+            'name' => 'Первые блюда',
+            'slug' => $slugObj->make('Первые блюда'),
         ]);
         Type::create([
-            'name' => 'Вторые блюда'
+            'name' => 'Вторые блюда',
+            'slug' => $slugObj->make('Вторые блюда'),
         ]);
     }
 }
