@@ -120,9 +120,11 @@
                             <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
                         </li>
                         @foreach($types as $type)
+                            @if(count($type->products) > 0)
                             <li class="nav-item">
                                 <a href="#{{ $type->slug }}" class="nav-link text-capitalize text-light">{{ $type->name }}</a>
                             </li>
+                            @endif
                         @endforeach
                         <li class="nav-item">
                             <a href="#contacts" class="nav-link text-light text-capitalize underline-link">контакты</a>

@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function create()
     {
         return view('product.create', [
-            'types' => Type::all(),
+            'types' => Type::all()->sortBy('order'),
         ]);
     }
 
@@ -79,7 +79,7 @@ class ProductController extends Controller
     {
         return view('product.edit', [
             'product' => $product,
-            'types' => Type::all(),
+            'types' => Type::all()->sortBy('order'),
         ]);
     }
 

@@ -10,7 +10,7 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="name-of-product">Название</label>
-                    <input maxlength="20" name="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name-of-product" placeholder="Название" value="{{ $product->name }}">
+                    <input maxlength="25" name="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name-of-product" placeholder="Название" value="{{ $product->name }}">
                     @if($errors->has('name'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('name') }}</strong>
