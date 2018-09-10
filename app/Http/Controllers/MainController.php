@@ -10,7 +10,7 @@ class MainController extends Controller
     public function welcome()
     {
         return view('welcome', [
-            'types' => Type::all(),
+            'types' => Type::all()->sortBy('order'),
         ]);
     }
 }

@@ -17,6 +17,15 @@
                         </span>
                     @endif
                 </div>
+                <div class="form-group">
+                    <label for="order-of-product">Порядок</label>
+                    <input name="order" type="text" class="form-control {{ $errors->has('order') ? ' is-invalid' : '' }}" id="order-of-type" placeholder="Порядок" value="{{ $type->order }}">
+                    @if($errors->has('order'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('order') }}</strong>
+                        </span>
+                    @endif
+                </div>
                 <button type="submit" class="btn btn-success">Сохранить</button>
             </form>
         </div>
