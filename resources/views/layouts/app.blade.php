@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('images/logo.png') }}"/>
+    <meta name="msapplication-square70x70logo" content="{{ asset('images/logo.png') }}"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -71,10 +76,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav">
                         <li class="nav-item d-md-none d-lg-block">
-                            <a class="nav-link" href="tel:{{ $option->tel1 }}">{{ $option->tel1 }}</a>
+                            <a class="nav-link font-weight-bold text-danger h5" href="tel:{{ $option->tel1 }}">{{ $option->tel1 }}</a>
                         </li>
                         <li class="nav-item d-md-none d-lg-block">
-                            <a class="nav-link" href="tel:{{ $option->tel2 }}">{{ $option->tel2 }}</a>
+                            <a class="nav-link font-weight-bold text-danger h5" href="tel:{{ $option->tel2 }}">{{ $option->tel2 }}</a>
                         </li>
                         @auth
 

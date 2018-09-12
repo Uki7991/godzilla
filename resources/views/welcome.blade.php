@@ -17,7 +17,7 @@
                     <h2 class="text-capitalize section-h2 font-weight-bold w-100"><span>{{ $type->name }}</span></h2>
                 </div>
 
-                <div class="row">
+                <div class="row justify-content-center">
 
                     @foreach($type->products as $product)
 
